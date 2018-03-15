@@ -1,3 +1,0 @@
-# bcal
-
-The bcal package
