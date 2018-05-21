@@ -1,5 +1,5 @@
 Name:       bcal
-Version:    1.8
+Version:    1.9
 Release:    1%{?dist}
 Summary:    Storage conversion and expression calculator
 
@@ -12,6 +12,7 @@ ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x
 
 BuildRequires:  gcc
 BuildRequires:  make
+BuildRequires:  readline-devel
 
 
 %description
@@ -46,6 +47,9 @@ export LDFLAGS="%{?__global_ldflags}"
 
 
 %changelog
+* Mon May 21 2018 Robert-André Mauchin <zebob.m@gmail.com> - 1.9-1
+- Release 1.9
+
 * Mon Mar 12 2018 Robert-André Mauchin <zebob.m@gmail.com> - 1.8-1
 - Release 1.8
 
