@@ -1,5 +1,5 @@
 Name:       bcal
-Version:    1.9
+Version:    2.0
 Release:    1%{?dist}
 Summary:    Storage conversion and expression calculator
 
@@ -47,6 +47,9 @@ export LDFLAGS="%{?__global_ldflags}"
 
 
 %changelog
+* Wed Oct 03 2018 Robert-André Mauchin <zebob.m@gmail.com> - 2.0-1
+- Release 2.0
+
 * Mon May 21 2018 Robert-André Mauchin <zebob.m@gmail.com> - 1.9-1
 - Release 1.9
 
