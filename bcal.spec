@@ -1,11 +1,14 @@
 Name:       bcal
 Version:    2.1
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    Storage conversion and expression calculator
 
 License:    GPLv3+
 URL:        https://github.com/jarun/bcal
 Source0:    %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+
+# https://github.com/jarun/bcal/issues/30
+Patch0:     https://github.com/jarun/bcal/commit/f9056e556778fe5dd594e0e3607b6caed5b17f4d.patch#/0001-Fix-30.patch
 
 # Only available for 64bits system
 ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x
@@ -47,6 +50,9 @@ export LDFLAGS="%{?__global_ldflags}"
 
 
 %changelog
+* Thu Feb 21 2019 Robert-André Mauchin <zebob.m@gmail.com> - 2.1-4
+- Fix bug related to GCC 9.0
+
 * Sun Feb 17 2019 Igor Gnatenko <ignatenkobrain@fedoraproject.org> - 2.1-3
 - Rebuild for readline 8.0
 
