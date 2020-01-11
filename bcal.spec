@@ -7,9 +7,6 @@ License:    GPLv3+
 URL:        https://github.com/jarun/bcal
 Source0:    %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
-# https://github.com/jarun/bcal/issues/30
-Patch0:     https://github.com/jarun/bcal/commit/f9056e556778fe5dd594e0e3607b6caed5b17f4d.patch#/0001-Fix-30.patch
-
 # Only available for 64bits system
 ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x
 
