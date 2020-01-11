@@ -1,14 +1,11 @@
 Name:       bcal
-Version:    2.1
-Release:    5%{?dist}
+Version:    2.2
+Release:    1%{?dist}
 Summary:    Storage conversion and expression calculator
 
 License:    GPLv3+
 URL:        https://github.com/jarun/bcal
 Source0:    %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
-
-# https://github.com/jarun/bcal/issues/30
-Patch0:     https://github.com/jarun/bcal/commit/f9056e556778fe5dd594e0e3607b6caed5b17f4d.patch#/0001-Fix-30.patch
 
 # Only available for 64bits system
 ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x
@@ -17,30 +14,25 @@ BuildRequires:  gcc
 BuildRequires:  make
 BuildRequires:  readline-devel
 
-
 %description
-bcal (Byte CALculator) is a command-line utility for storage conversions 
-and calculations. Storage, hardware and firmware developers work 
-with numerical calculations regularly e.g., storage unit conversions, 
-address calculations etc. If you are one and can't calculate the hex address 
-offset for (512 - 16) MiB immediately, or the value when the 43rd bit of 
+bcal (Byte CALculator) is a command-line utility for storage conversions
+and calculations. Storage, hardware and firmware developers work
+with numerical calculations regularly e.g., storage unit conversions,
+address calculations etc. If you are one and can't calculate the hex address
+offset for (512 - 16) MiB immediately, or the value when the 43rd bit of
 a 64-bit address is set, bcal is for you
-
 
 %prep
 %autosetup -p1 -n %{name}-%{version}
 sed -i '/STRIP ?= strip/d;s/install: bcal/install: /;s/$(CFLAGS)/$(CFLAGS) $(LDFLAGS)/' Makefile
-
 
 %build
 export CFLAGS="-fPIC %{optflags}"
 export LDFLAGS="%{?__global_ldflags}"
 %make_build bcal
 
-
 %install
 %make_install PREFIX=%{_prefix}
-
 
 %files
 %doc CHANGELOG README.md
@@ -48,8 +40,10 @@ export LDFLAGS="%{?__global_ldflags}"
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1.*
 
-
 %changelog
+* Sat Jan 11 18:02:21 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 2.2-1
+- Update to 2.2 (#1788743)
+
 * Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.1-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
