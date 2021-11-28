@@ -1,5 +1,5 @@
 Name:       bcal
-Version:    2.2
+Version:    2.3
 Release:    %autorelease
 Summary:    Storage conversion and expression calculator
 
