@@ -1,6 +1,6 @@
 Name:       bcal
 Version:    2.4
-Release:    %autorelease
+Release:    %autorelease -e rv64
 Summary:    Storage conversion and expression calculator
 
 License:    GPLv3+
@@ -8,7 +8,7 @@ URL:        https://github.com/jarun/bcal
 Source0:    %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 # Only available for 64bits system
-ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x
+ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x riscv64
 
 BuildRequires:  gcc
 BuildRequires:  make
