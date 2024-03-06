@@ -1,6 +1,6 @@
 Name:       bcal
 Version:    2.4
-Release:    %autorelease
+Release:    %autorelease -e rvrebuild0
 Summary:    Storage conversion and expression calculator
 
 License:    GPL-3.0-or-later
@@ -8,11 +8,13 @@ URL:        https://github.com/jarun/bcal
 Source0:    %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 # Only available for 64bits system
-ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x
+ExclusiveArch: x86_64 aarch64 ia64 ppc64 ppc64le s390x riscv64
 
 BuildRequires:  gcc
 BuildRequires:  make
 BuildRequires:  readline-devel
+BuildRequires:  pytest
+BuildRequires:  bc
 
 %description
 bcal (Byte CALculator) is a command-line utility for storage conversions
@@ -33,6 +35,9 @@ export LDFLAGS="%{?__global_ldflags}"
 
 %install
 %make_install PREFIX=%{_prefix}
+
+%check
+%pytest test.py
 
 %files
 %doc CHANGELOG README.md
